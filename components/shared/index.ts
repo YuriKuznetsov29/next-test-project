@@ -1,3 +1,6 @@
-export {Container} from './container'
-export {Header} from './header'
-export {SearchInput} from './search-input'
+export { Container } from "./container"
+export { Header } from "./header"
+export { SearchInput } from "./search-input"
+export { TopBar } from "./top-bar"
+export { FilterCheckbox } from "./filter-checkbox"
+export { CheckboxFiltersGroup } from "./filter-checkbox-group"
