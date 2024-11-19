@@ -1,5 +1,5 @@
-import * as products from "@/prisma/constants"
+import * as products from "./products";
 
 export const Api = {
     products,
-}
+};
