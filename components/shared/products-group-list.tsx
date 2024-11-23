@@ -33,10 +33,10 @@ export const ProductsGroupList: React.FC<Props> = ({ title, items, className, ca
                 {items.map((item, i) => (
                     <ProductCard
                         key={item.id}
-                        name="Маргарита"
-                        imageUrl="https://media.dodostatic.net/image/r:292x292/11EE7D610BBEB562BD4D48786AD87270.webp"
-                        price={390}
-                        count={i % 2}
+                        name={item.name}
+                        imageUrl={item.imageUrl}
+                        price={item.items[0].price}
+                        // ingredients={item.ingredients}
                     />
                 ))}
             </div>
