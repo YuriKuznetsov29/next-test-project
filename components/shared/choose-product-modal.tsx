@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ProductWithRelations } from "@/@types/prisma";
 import { ProductForm } from "./product-form";
 import { Dialog, DialogContent } from "../ui/dialog";
+import { cn } from "@/lib/utils";
 
 interface Props {
     product: ProductWithRelations;

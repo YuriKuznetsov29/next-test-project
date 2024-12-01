@@ -6,11 +6,12 @@ import { Ingredient, ProductItem } from "@prisma/client";
 import { PizzaImage } from "./pizza-image";
 import { Title } from "./title";
 import { Button } from "../ui";
-import { getPizzaDetails } from "@/shared/lib";
-import { usePizzaOptions } from "@/shared/hooks";
 import { PizzaSize, PizzaType, pizzaTypes } from "../constants";
 import { IngredientItem } from "./ingredient-item";
 import { GroupVariants } from "./group-variants";
+import { usePizzaOptions } from "@/hooks/usePizzaOptions";
+import { cn } from "@/lib/utils";
+import { getPizzaDetails } from "@/lib/get-pizza-detailse";
 
 interface Props {
     imageUrl: string;
@@ -18,7 +19,7 @@ interface Props {
     ingredients: Ingredient[];
     items: ProductItem[];
     loading?: boolean;
-    onSubmit: (itemId: number, ingredients: number[]) => void;
+    // onSubmit: (itemId: number, ingredients: number[]) => void;
     className?: string;
 }
 
@@ -31,7 +32,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
     imageUrl,
     ingredients,
     loading,
-    onSubmit,
+    // onSubmit,
     className,
 }) => {
     const {
@@ -55,7 +56,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
 
     const handleClickAdd = () => {
         if (currentItemId) {
-            onSubmit(currentItemId, Array.from(selectedIngredients));
+            // onSubmit(currentItemId, Array.from(selectedIngredients));
         }
     };
 
@@ -66,7 +67,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
             <div className="w-[490px] bg-[#f7f6f5] p-7">
                 <Title text={name} size="md" className="font-extrabold mb-1" />
 
-                <p className="text-gray-400">{textDetaills}</p>
+                <p className="text-gray-400">{123}</p>
 
                 <div className="flex flex-col gap-4 mt-5">
                     <GroupVariants
@@ -102,7 +103,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
                     onClick={handleClickAdd}
                     className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10"
                 >
-                    Добавить в корзину за {totalPrice} ₽
+                    Добавить в корзину за {100} ₽
                 </Button>
             </div>
         </div>
