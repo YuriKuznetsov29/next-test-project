@@ -9,18 +9,18 @@ export async function GET(req: NextRequest) {
   try {
     const token = req.cookies.get('cartToken')?.value;
 
-    // if (!token) {
-    //   return NextResponse.json({ totalAmount: 0, items: [] });
-    // }
+    if (!token) {
+      return NextResponse.json({ totalAmount: 0, items: [] });
+    }
 
     const userCart = await prisma.cart.findFirst({
       where: {
-        // OR: [
-        //   {
-        //     token,
-        //   },
-        // ],
-        userId: 1,
+        OR: [
+          {
+            token,
+          },
+        ],
+        // userId: 1,
       },
       include: {
         items: {
