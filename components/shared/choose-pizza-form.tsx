@@ -19,7 +19,7 @@ interface Props {
     ingredients: Ingredient[];
     items: ProductItem[];
     loading?: boolean;
-    // onSubmit: (itemId: number, ingredients: number[]) => void;
+    onSubmit: (itemId: number, ingredients: number[]) => void;
     className?: string;
 }
 
@@ -32,7 +32,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
     imageUrl,
     ingredients,
     loading,
-    // onSubmit,
+    onSubmit,
     className,
 }) => {
     const {
@@ -56,7 +56,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
 
     const handleClickAdd = () => {
         if (currentItemId) {
-            // onSubmit(currentItemId, Array.from(selectedIngredients));
+            onSubmit(currentItemId, Array.from(selectedIngredients));
         }
     };
 
@@ -99,7 +99,7 @@ export const ChoosePizzaForm: React.FC<Props> = ({
                 </div>
 
                 <Button
-                    // loading={loading}
+                    loading={loading}
                     onClick={handleClickAdd}
                     className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10"
                 >

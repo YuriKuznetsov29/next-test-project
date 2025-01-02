@@ -5,10 +5,11 @@ import { cn } from "@/lib/utils";
 
 interface Props {
     imageUrl: string;
+    id: number;
     name: string;
     price: number;
     loading?: boolean;
-    onSubmit?: VoidFunction;
+    onSubmit?: (id: number) => void;
     className?: string;
 }
 
@@ -22,6 +23,7 @@ export const ChooseProductForm: React.FC<Props> = ({
     onSubmit,
     className,
     loading,
+    id
 }) => {
     return (
         <div className={cn(className, "flex flex-1")}>
@@ -37,8 +39,8 @@ export const ChooseProductForm: React.FC<Props> = ({
                 <Title text={name} size="md" className="font-extrabold mb-1" />
 
                 <Button
-                    // loading={loading}
-                    onClick={() => onSubmit?.()}
+                    loading={loading}
+                    onClick={() => onSubmit?.(id)}
                     className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10"
                 >
                     Добавить в корзину за {price} ₽

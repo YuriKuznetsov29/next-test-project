@@ -20,7 +20,6 @@ export async function GET(req: NextRequest) {
             token,
           },
         ],
-        // userId: 1,
       },
       include: {
         items: {

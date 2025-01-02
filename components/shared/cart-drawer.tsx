@@ -40,8 +40,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
 
       <SheetContent className="flex flex-col justify-between pb-0 bg-[#F4F1EE]">
         <div className={cn('flex flex-col h-full', !totalAmount && 'justify-center')}>
-          {/* {totalAmount > 0 && ( */}
-          {items.length > 0 && (
+          {totalAmount > 0 && (
             <SheetHeader>
               <SheetTitle>
                 В корзине <span className="font-bold">{items.length} товара</span>
@@ -49,8 +48,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
             </SheetHeader>
           )}
 
-          {/* {!totalAmount && ( */}
-          {!items.length && (
+          {!totalAmount && (
             <div className="flex flex-col items-center justify-center w-72 mx-auto">
               <Image src="/assets/images/empty-box.png" alt="Empty cart" width={120} height={120} />
               <Title size="sm" text="Корзина пустая" className="text-center font-bold my-2" />
@@ -67,8 +65,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
             </div>
           )}
 
-          {/* {totalAmount > 0 && ( */}
-          {items.length > 0 && (
+          {totalAmount > 0 && (
             <>
               <div className="-mx-6 mt-5 overflow-auto flex-1">
                 {items.map((item) => (

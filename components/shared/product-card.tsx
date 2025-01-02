@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Title } from "./title";
 import { CountButton } from "./count-button";
 import Link from "next/link";
+import { useCart } from "@/hooks/useCart";
 
 interface Props {
     id: number;
@@ -13,9 +14,13 @@ interface Props {
     count?: number;
     imageUrl?: string;
     className?: string;
+    ingredients?: number[];
 }
 
-export const ProductCard: React.FC<Props> = ({ name, price, count, imageUrl, className, id }) => {
+export const ProductCard: React.FC<Props> = ({ name, price, count, imageUrl, className, id, ingredients }) => {
+
+    const { addCartItem } = useCart();
+
     return (
         <div className={cn(className)}>
             <Link href={`/product/${id}`}>
@@ -36,7 +41,7 @@ export const ProductCard: React.FC<Props> = ({ name, price, count, imageUrl, cla
                     {count ? (
                         <CountButton value={count} size="lg" />
                     ) : (
-                        <Button variant="secondary">
+                        <Button variant="secondary" onClick={() => addCartItem({productItemId: id, ingredients })}>
                             <Plus className="w-4 h-4 mr-1" />
                             Добавить
                         </Button>
