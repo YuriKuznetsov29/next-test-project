@@ -9,6 +9,7 @@ export const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <>
       {/* <SessionProvider>{children}</SessionProvider> */}
+      {children}
       <Toaster />
       {/* <NextTopLoader /> */}
     </>
