@@ -6,6 +6,7 @@ import { Title } from "./title";
 import { CountButton } from "./count-button";
 import Link from "next/link";
 import { useCart } from "@/hooks/useCart";
+import { Ingredient } from "@prisma/client";
 
 interface Props {
     id: number;
@@ -14,7 +15,7 @@ interface Props {
     count?: number;
     imageUrl?: string;
     className?: string;
-    ingredients?: number[];
+    ingredients?: Ingredient[];
 }
 
 export const ProductCard: React.FC<Props> = ({ name, price, count, imageUrl, className, id, ingredients }) => {
@@ -29,8 +30,7 @@ export const ProductCard: React.FC<Props> = ({ name, price, count, imageUrl, cla
                 </div>
                 <Title text={name} size="sm" className="mb-1 mt-3 font-bold" />
                 <p className="text-sm text-gray-400">
-                    Цыпленок, моцарелла, сыры чеддер и пармезан, сырный соус, томаты, соус альфредо,
-                    чеснок
+                    {ingredients?.map((ingredient) => ingredient.name).join(', ')}
                 </p>
 
                 <div className="flex justify-between items-center mt-4">
